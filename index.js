@@ -15,6 +15,17 @@ app.get('/', (req, res) => {
 });
 
 app.post('/', (req, res) => {
+  // get accset to data send
+  req.on('data', (data) => {
+    const parsed = data.toString('utf8').split('&');
+    let formData = {};
+    for (let pair of parsed) {
+      let [key, value] = pair.split('=');
+      formData[key] = value;
+    }
+    console.log(formData);
+  });
+
   res.send('Account created!');
 });
 app.listen(3000, () => {
