@@ -13,18 +13,25 @@ app.get('/', (req, res) => {
   </form>
 </div>`);
 });
+const bodyParser = (req, res, next) => {
+  if (req.method === 'POST') {
+    req.on('data', (data) => {
+      const parsed = data.toString('utf8').split('&');
+      let formData = {};
+      for (let pair of parsed) {
+        let [key, value] = pair.split('=');
+        formData[key] = value;
+      }
+      req.body = formData;
+      next();
+    });
+  } else {
+    next();
+  }
+};
 
-app.post('/', (req, res) => {
+app.post('/', bodyParser, (req, res) => {
   // get accset to data send
-  req.on('data', (data) => {
-    const parsed = data.toString('utf8').split('&');
-    let formData = {};
-    for (let pair of parsed) {
-      let [key, value] = pair.split('=');
-      formData[key] = value;
-    }
-    console.log(formData);
-  });
 
   res.send('Account created!');
 });
