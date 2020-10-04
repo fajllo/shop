@@ -1,4 +1,5 @@
 const fs = require('fs');
+const crypto = require('crypto');
 
 class UsersRepo {
   constructor(filename) {
@@ -23,6 +24,7 @@ class UsersRepo {
   }
 
   async create(attr) {
+    attr.id = this.randomId();
     //attr = {emial :'asdsadasdasdasdas' pass:"asdsadsad " ....}
     const records = await this.getAll();
     records.push(attr);
@@ -37,7 +39,9 @@ class UsersRepo {
     );
   }
 
-  randomId() {}
+  randomId() {
+    return crypto.randomBytes(4).toString('hex');
+  }
 }
 const test = async () => {
   const usrsRep = new UsersRepo('users.json');
