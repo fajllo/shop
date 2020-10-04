@@ -13,7 +13,19 @@ class UsersRepo {
     }
   }
 
-  async getAll() {}
+  async getAll() {
+    //open fil
+    return JSON.parse(
+      await fs.promises.readFile(this.filename, {
+        encoding: 'utf8',
+      })
+    );
+  }
 }
+const test = async () => {
+  const usrsRep = new UsersRepo('users.json');
+  const users = await usrsRep.getAll();
+  console.log(users);
+};
 
-const usrsRep = new UsersRepo('users.json');
+test();
