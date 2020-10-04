@@ -47,12 +47,32 @@ class UsersRepo {
     const records = await this.getAll();
     return await records.find((record) => record.id === id);
   }
+  async delete(id) {
+    const records = await this.getAll();
+    const filteredRecords = records.filter((record) => record.id !== id);
+    this.writeAll(filteredRecords);
+  }
+
+  async update(id, attr) {
+    //get all
+    const records = await this.getAll();
+    //find selected record
+    const record = await records.find((record) => record.id === id);
+    console.log(records);
+    console.log(record);
+    if (!record) {
+      throw new Error('record not found!');
+    }
+    Object.assign(record, attr);
+    await this.writeAll(records);
+  }
 }
 const test = async () => {
   const usrsRep = new UsersRepo('users.json');
-  await usrsRep.create({email: 'test1@js.com', password: '123456'});
-  const user = await usrsRep.getOne('f6cbaffb');
-  console.log(user);
+  //   await usrsRep.create({email: 'test1@js.com', password: '123456'});
+  //   const user = await usrsRep.getOne('f6cbaffb');
+  //   const remove = await usrsRep.delete('f392f57c');
+  await usrsRep.update('036b07f7', {password: 'dupadua'});
 };
 
 test();
