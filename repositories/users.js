@@ -7,8 +7,8 @@ class UsersRepo {
     }
     this.filename = filename;
     try {
-      false.accesSync(this.filename);
-    } catch (e) {
+      fs.accessSync(this.filename);
+    } catch (err) {
       fs.writeFileSync(this.filename, '[]');
     }
   }
@@ -36,10 +36,12 @@ class UsersRepo {
       JSON.stringify(records, null, 2)
     );
   }
+
+  randomId() {}
 }
 const test = async () => {
   const usrsRep = new UsersRepo('users.json');
-  await usrsRep.create({email: 'test@js.com', password: '123456'});
+  await usrsRep.create({email: 'test1@js.com', password: '123456'});
   const users = await usrsRep.getAll();
   console.log(users);
 };
