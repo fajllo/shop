@@ -83,14 +83,16 @@ class UsersRepo {
     }
   }
 }
-const test = async () => {
-  const usrsRep = new UsersRepo('users.json');
-  //   await usrsRep.create({email: 'test1@js.com', password: '123456'});
-  //   const user = await usrsRep.getOne('f6cbaffb');
-  //   const remove = await usrsRep.delete('f392f57c');
-  // await usrsRep.update('036b07f7', {password: 'dupadua'});
-  const user = await usrsRep.getOneBy({email: 'test4@js.com'});
-  console.log(user);
-};
+// const test = async () => {
+//   const usrsRep = new UsersRepo('users.json');
+//   //   await usrsRep.create({email: 'test1@js.com', password: '123456'});
+//   //   const user = await usrsRep.getOne('f6cbaffb');
+//   //   const remove = await usrsRep.delete('f392f57c');
+//   // await usrsRep.update('036b07f7', {password: 'dupadua'});
+//   const user = await usrsRep.getOneBy({email: 'test4@js.com'});
+//   console.log(user);
+// };
 
-test();
+// test();
+
+module.exports = new UsersRepo('users.json');
