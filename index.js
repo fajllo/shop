@@ -5,7 +5,8 @@ const usersRepo = require('./repositories/users');
 
 const app = express();
 app.use(bodyParser.urlencoded({extended: true}));
-app.use(cookieSession({keys: []}));
+//encrypting cookies
+app.use(cookieSession({keys: ['asdsafwquyg123e1equwh9']}));
 
 app.get('/', (req, res) => {
   res.send(`   
@@ -32,6 +33,9 @@ app.post('/', async (req, res) => {
   }
   //create user in our repo
   const user = await usersRepo.create({email, password});
+  // added by cookie session
+  // req.session === {}
+  req.session.userId === user.id;
 
   res.send('Account created!');
 });

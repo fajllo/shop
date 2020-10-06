@@ -1,5 +1,20 @@
 [
   {
     "email": "test@test.com"
+  },
+  {
+    "email": "test@test.coms",
+    "password": "dupa",
+    "id": "223a6e5d"
+  },
+  {
+    "email": "fifi@dupa.com",
+    "password": "qwerty",
+    "id": "f2f7e113"
+  },
+  {
+    "email": "fifi@dupa.comqw",
+    "password": "qwerty",
+    "id": "85112a99"
   }
 ]
