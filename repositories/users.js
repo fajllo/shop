@@ -30,6 +30,7 @@ class UsersRepo {
     records.push(attr);
     //write back to useres.json
     await this.writeAll(records);
+    return attr;
   }
 
   async writeAll(records) {

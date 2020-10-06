@@ -1,9 +1,11 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const cookieSession = require('cookie-session');
 const usersRepo = require('./repositories/users');
 
 const app = express();
 app.use(bodyParser.urlencoded({extended: true}));
+app.use(cookieSession({keys: []}));
 
 app.get('/', (req, res) => {
   res.send(`   
@@ -28,8 +30,12 @@ app.post('/', async (req, res) => {
   if (password !== confirm) {
     return res.send('passw must be the same!');
   }
+  //create user in our repo
+  const user = await usersRepo.create({email, password});
+
   res.send('Account created!');
 });
+
 app.listen(3000, () => {
   console.log('listening dude');
 });
