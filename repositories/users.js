@@ -39,7 +39,14 @@ class UsersRepo {
     await this.writeAll(records);
     return record;
   }
-  async compre() {}
+  async compre(suppliedPsw, savedPsw) {
+    //savedPsw > passwd saved in data base
+    //suppliedPsw passwd from website form
+    const [hash, salt] = savedPsw.split('.');
+    const hashSupply = await scrypt(suppliedPsw, salt, 64);
+
+    return hash === hashSupply.toString('hex');
+  }
 
   async writeAll(records) {
     await fs.promises.writeFile(

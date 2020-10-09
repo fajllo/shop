@@ -59,11 +59,13 @@ app.post('/signin', async (req, res) => {
   if (!user) {
     res.send('email not found');
   }
-  if (user.password !== password) {
+  const validPsw = await usersRepo.compre(password, user.password);
+  if (!validPsw) {
     res.send('invalid combination ');
   }
-  res.session = user.id;
+
   res.send('you are singed in');
+  res.session = user.id;
 });
 
 app.get('/singout', (req, res) => {

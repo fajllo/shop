@@ -3,5 +3,15 @@
     "email": "fifi@test.pl",
     "password": "7f9020e3f84531c501616d7bc57aabaeadce080d85a684c190bc315188770129bc884cbdb26f8b774088fe0bc750d1c92f27acbf7a46e60385fc7648b7f1df33.83b407d1d87d7879",
     "id": "0560251f"
+  },
+  {
+    "email": "123",
+    "password": "e8e76f3bd136e14b2f507350d2d1918f25d43bf45a7b4f851f6a590af3117d905d3b5f91680796597a767ad20cd501f81c0bebef8313498321ea01fa1bdb1685.048c3d3c91ca589e",
+    "id": "049bd1e0"
+  },
+  {
+    "email": "fake@fake.com",
+    "password": "aa876994f5b5b7a32e55da07cb0a031ad447f516387be9e88830ec3abe75e9d4e3ba02f8c8410460bf98590f0bdce5b719da6dc5c416303fb057e83b952364f0.735c6ca206f6ba30",
+    "id": "8c2d89cc"
   }
 ]
