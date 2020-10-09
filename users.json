@@ -1,65 +1,7 @@
 [
   {
-    "email": "test@test.com"
-  },
-  {
-    "email": "test@test.coms",
-    "password": "dupa",
-    "id": "223a6e5d"
-  },
-  {
-    "email": "fifi@dupa.com",
-    "password": "qwerty",
-    "id": "f2f7e113"
-  },
-  {
-    "email": "fifi@dupa.comqw",
-    "password": "qwerty",
-    "id": "85112a99"
-  },
-  {
-    "email": "fifi@dupa.comqwwefsd",
-    "password": "qwerty",
-    "id": "62e57bcc"
-  },
-  {
-    "email": "fifi@dupa.comqwwefsdxv",
-    "password": "qwerty",
-    "id": "0c27bb72"
-  },
-  {
-    "email": "fifi@das.comqwwefsdxv",
-    "password": "qwerty",
-    "id": "fe58ec3e"
-  },
-  {
-    "email": "fifi@das.comqwwefsdxvZXC",
-    "password": "qwerty",
-    "id": "2891a0e2"
-  },
-  {
-    "email": "fajl@interia.eu",
-    "password": "ads",
-    "id": "dd9a4c62"
-  },
-  {
-    "email": "sad",
-    "password": "das",
-    "id": "bc4052c3"
-  },
-  {
-    "email": "dsadas",
-    "password": "dasdsa",
-    "id": "7429598d"
-  },
-  {
-    "email": "dsadasads",
-    "password": "dasdsa",
-    "id": "2baf0a07"
-  },
-  {
-    "email": "sdad",
-    "password": "asdasd",
-    "id": "a7cab2d2"
+    "email": "fifi@test.pl",
+    "password": "7f9020e3f84531c501616d7bc57aabaeadce080d85a684c190bc315188770129bc884cbdb26f8b774088fe0bc750d1c92f27acbf7a46e60385fc7648b7f1df33.83b407d1d87d7879",
+    "id": "0560251f"
   }
 ]

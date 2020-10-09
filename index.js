@@ -13,6 +13,7 @@ app.use(cookieParser());
 app.get('/singup', (req, res) => {
   res.send(`   
  <div>
+  
   <form method="POST">
     <input type="text" name="email" placeholder="email" id="" />
     <input type="text" name="password" placeholder="password" id="" />
@@ -37,6 +38,7 @@ app.post('/singup', async (req, res) => {
   const user = await usersRepo.create({email, password});
   // added by cookie session
   // req.session === {
+  res.session = user.id;
 
   res.send('Account created!');
 });
@@ -51,7 +53,18 @@ app.get('/signin', (req, res) => {
  </div>`);
 });
 
-app.post('/signin', async (req, res) => {});
+app.post('/signin', async (req, res) => {
+  const {email, password} = req.body;
+  const user = await usersRepo.getOneBy({email});
+  if (!user) {
+    res.send('email not found');
+  }
+  if (user.password !== password) {
+    res.send('invalid combination ');
+  }
+  res.session = user.id;
+  res.send('you are singed in');
+});
 
 app.get('/singout', (req, res) => {
   req.session = null;
