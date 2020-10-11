@@ -1,6 +1,5 @@
 const express = require('express');
 const usersRepo = require('../../repositories/users');
-const signup = require('../../viwes/admin/auth/signup');
 const signupTemp = require('../../viwes/admin/auth/signup');
 const signinTemp = require('../../viwes/admin/auth/signin');
 
