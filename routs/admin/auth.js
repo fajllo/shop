@@ -1,22 +1,16 @@
 const express = require('express');
 const usersRepo = require('../../repositories/users');
+const signup = require('../../viwes/admin/auth/signup');
+const signupTemp = require('../../viwes/admin/auth/signup');
+const signinTemp = require('../../viwes/admin/auth/signin');
 
 const router = express.Router();
 
-router.get('/singup', (req, res) => {
-  res.send(`   
-   <div>
-    
-    <form method="POST">
-      <input type="text" name="email" placeholder="email" id="" />
-      <input type="text" name="password" placeholder="password" id="" />
-      <input type="text" name="confirm" placeholder="confirm" id="" />
-      <button>Sing UP!</button>
-    </form>
-  </div>`);
+router.get('/signup', (req, res) => {
+  res.send(signupTemp({req}));
 });
 
-router.post('/singup', async (req, res) => {
+router.post('/signup', async (req, res) => {
   // get accset to data send
   // console.log(req.body);
   const {email, password, confirm} = req.body;
@@ -31,19 +25,12 @@ router.post('/singup', async (req, res) => {
   const user = await usersRepo.create({email, password});
   // added by cookie session
   // req.session === {
-  res.session = user.id;
+  res.sessionID = user.id;
 
   res.send('Account created!');
 });
 router.get('/signin', (req, res) => {
-  res.send(`   
-    <div>
-     <form method="POST">
-       <input type="text" name="email" placeholder="email" id="" />
-       <input type="text" name="password" placeholder="password" id="" />
-       <button>Sing in!</button>
-     </form>
-   </div>`);
+  res.send(signinTemp({req}));
 });
 
 router.post('/signin', async (req, res) => {
@@ -58,11 +45,11 @@ router.post('/signin', async (req, res) => {
   }
 
   res.send('you are singed in');
-  res.session = user.id;
+  res.sessionID = user.id;
 });
 
-router.get('/singout', (req, res) => {
-  req.session = null;
+router.get('/signout', (req, res) => {
+  req.sessionID = null;
   res.send('logged out!');
 });
 
