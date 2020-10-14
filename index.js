@@ -5,6 +5,7 @@ const authRouter = require('./routs/admin/auth');
 const cookieParser = require('cookie-parser');
 
 const app = express();
+app.use(express.static('public'));
 app.use(bodyParser.urlencoded({extended: true}));
 //encrypting cookies
 app.use(session({secret: 'secret,shhhh!', resave: false}));
