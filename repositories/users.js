@@ -1,31 +1,10 @@
-const fs = require('fs');
 const crypto = require('crypto');
 const util = require('util');
+const Repo = require('./repo');
 
 const scrypt = util.promisify(crypto.scrypt);
 
-class UsersRepo {
-  constructor(filename) {
-    if (!filename) {
-      throw new Error('provide a filename');
-    }
-    this.filename = filename;
-    try {
-      fs.accessSync(this.filename);
-    } catch (err) {
-      fs.writeFileSync(this.filename, '[]');
-    }
-  }
-
-  async getAll() {
-    //open fil
-    return JSON.parse(
-      await fs.promises.readFile(this.filename, {
-        encoding: 'utf8',
-      })
-    );
-  }
-
+class UsersRepo extends Repo {
   async create(attr) {
     //attr = {emial :'asdsadasdasdasdas' pass:"asdsadsad " ....}
     attr.id = this.randomId();
@@ -46,57 +25,6 @@ class UsersRepo {
     const hashSupply = await scrypt(suppliedPsw, salt, 64);
 
     return hash === hashSupply.toString('hex');
-  }
-
-  async writeAll(records) {
-    await fs.promises.writeFile(
-      this.filename,
-      JSON.stringify(records, null, 2)
-    );
-  }
-
-  randomId() {
-    return crypto.randomBytes(4).toString('hex');
-  }
-
-  async getOne(id) {
-    const records = await this.getAll();
-    return await records.find((record) => record.id === id);
-  }
-  async delete(id) {
-    const records = await this.getAll();
-    const filteredRecords = records.filter((record) => record.id !== id);
-    this.writeAll(filteredRecords);
-  }
-
-  async update(id, attr) {
-    //get all
-    const records = await this.getAll();
-    //find selected record
-    const record = await records.find((record) => record.id === id);
-    console.log(records);
-    console.log(record);
-    if (!record) {
-      throw new Error('record not found!');
-    }
-    Object.assign(record, attr);
-    await this.writeAll(records);
-  }
-
-  async getOneBy(filtres) {
-    const records = await this.getAll();
-    for (let record of records) {
-      let found = true;
-
-      for (let key in filtres) {
-        if (record[key] !== filtres[key]) {
-          found = false;
-        }
-      }
-      if (found) {
-        return record;
-      }
-    }
   }
 }
 // const test = async () => {

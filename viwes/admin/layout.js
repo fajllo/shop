@@ -13,7 +13,7 @@ module.exports = ({content}) => {
 
       <body class="admin">
         <header>
-          <nav class="navbar navbar-bottom has-background-light ">
+          <nav class="navbar navbar-bottom has-background-warning-light">
             <div class="container navbar-container">
               <div>
                 <a href="/admin/products">
