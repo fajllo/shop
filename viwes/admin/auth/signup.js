@@ -1,6 +1,7 @@
 const layout = require('../layout');
+const {getError} = require('../../helpers');
 
-module.exports = ({req}) => {
+module.exports = ({req, errors}) => {
   return layout({
     content: `
   <div>
@@ -10,6 +11,9 @@ module.exports = ({req}) => {
     <input type="text" name="password" placeholder="password" id="" />
     <input type="text" name="confirm" placeholder="confirm" id="" />
     <button>Sing UP!</button>
+    <h1>${getError(errors, 'email')}</h1>
+    <h1>${getError(errors, 'password')}</h1>
+    <h1>${getError(errors, 'confirm')}</h1>
   </form>
 </div>
   `,
