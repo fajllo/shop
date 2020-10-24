@@ -29,7 +29,7 @@ router.post(
 
     // get accset to data send
     // console.log(req.body);
-    const {email, password, confirm} = req.body;
+    const {email, password} = req.body;
     //create user in our repo
     const user = await usersRepo.create({email, password});
     // added by cookie session
