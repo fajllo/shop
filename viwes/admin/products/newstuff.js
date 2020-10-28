@@ -6,7 +6,7 @@ module.exports = ({errors}) => {
       <form method="POST" >
         <input type="text" placeholder="Title" name="title" />
         <input type="text" placeholder="Price" name="price" />
-        <input type="file" name="image" />
+        <input type="file" name="image" multiple />
         <button>Add new!</button>
       </form>`,
   });
