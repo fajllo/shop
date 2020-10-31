@@ -12,11 +12,11 @@ module.exports = class Repo {
       fs.writeFileSync(this.filename, '[]');
     }
   }
-  async created(attr) {
-    attr = this.randomId();
+  async create(attr) {
+    attr.id = this.randomId();
     const records = await this.getAll();
     records.push(attr);
-    await this.writeAll();
+    await this.writeAll(records);
     return attr;
   }
 
@@ -55,8 +55,6 @@ module.exports = class Repo {
     const records = await this.getAll();
     //find selected record
     const record = await records.find((record) => record.id === id);
-    console.log(records);
-    console.log(record);
     if (!record) {
       throw new Error('record not found!');
     }
