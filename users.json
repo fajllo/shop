@@ -1,32 +1,7 @@
 [
   {
-    "email": "fifi@test.pl",
-    "password": "7f9020e3f84531c501616d7bc57aabaeadce080d85a684c190bc315188770129bc884cbdb26f8b774088fe0bc750d1c92f27acbf7a46e60385fc7648b7f1df33.83b407d1d87d7879",
-    "id": "0560251f"
-  },
-  {
-    "email": "123",
-    "password": "e8e76f3bd136e14b2f507350d2d1918f25d43bf45a7b4f851f6a590af3117d905d3b5f91680796597a767ad20cd501f81c0bebef8313498321ea01fa1bdb1685.048c3d3c91ca589e",
-    "id": "049bd1e0"
-  },
-  {
-    "email": "fake@fake.com",
-    "password": "aa876994f5b5b7a32e55da07cb0a031ad447f516387be9e88830ec3abe75e9d4e3ba02f8c8410460bf98590f0bdce5b719da6dc5c416303fb057e83b952364f0.735c6ca206f6ba30",
-    "id": "8c2d89cc"
-  },
-  {
-    "email": "test@test.com",
-    "password": "5c9dc746ddfb3f897892cdbae3e2ff62889cf537002f0943100e3ab3e08b3b9275e593b0fdf3f7c5afa051195876847e8343fd193224513e162b5ac06fd15679.d3f9cbaa49150b91",
-    "id": "b6b25bf0"
-  },
-  {
-    "email": "test1@test1.com",
-    "password": "bde53a6d69a7934c9156b54a1262f0cf8311c45ff55b90e55af6c2f0ca4f2f2501aac21dcb2c07d7b9e3fb547d42a535b84e768268d3d47691b45c9fcf5b3b9e.af3be1c66d4d4f9c",
-    "id": "eae6f7fe"
-  },
-  {
-    "email": "fake@fake11.com",
-    "password": "f8a3c2297d8f2a3646f944c4026862b5871fcd0cdb7d4da6c2a763c777ce1d9dd7be31fedfae6da914b0e0e54b0a541d2ed418e3416ccc3390f7e94f3d3885dc.a741ba9dba5a167a",
-    "id": "1fb5c350"
+    "email": "fake11@fake.com",
+    "password": "70f7133e846e06cf3dccecdccdc1e2fcb07a85604603344696b7350aa710b825c55a05417f4b1da4f1c0442a5910e3b0e3be7c79b0dec322d07510cb175b5269.de1996c8a00d8219",
+    "id": "82196090"
   }
 ]
